@@ -13,15 +13,29 @@ public class Staff extends AbstractStaff{
 	}
 
 	public void addSubordinate(AbstractStaff staff){
+		System.out.println("1 addSubordinate: Current user:"+this.getStaffName()+" adding subordinate:"+staff.getStaffName()+" subordinates size"+getSubordinates().size());
 		getSubordinates().add(staff);
+		System.out.println("2 addSubordinate: Current user:"+this.getStaffName()+" added subordinate:"+staff.getStaffName()+" subordinates size"+getSubordinates().size());
+	}
+	
+	public AbstractStaff findSubordiate(AbstractStaff staff) {
+		for(AbstractStaff stafffromList: getSubordinates()){
+			if(staff.getStaffId().equals(stafffromList.getStaffId())){
+				return stafffromList;
+			}
+		}
+		return null;
 	}
 	
 	public void removeSubordinate(AbstractStaff staff){
-		for(AbstractStaff stafffromList: getSubordinates()){
-			if(staff.getStaffId().equals(stafffromList.getStaffId())){
-				getSubordinates().remove(stafffromList);
-			}
+		AbstractStaff subordinate =null;
+		
+		System.out.println("1 removeSubordinate: Current user:"+this.getStaffName()+" removing subordinate:"+staff.getStaffName()+" subordinates size"+getSubordinates().size());
+		subordinate=findSubordiate(staff);
+		if(subordinate!=null) {
+			getSubordinates().remove(subordinate);
 		}
+		System.out.println("2 removeSubordinate: Current user:"+this.getStaffName()+" removed subordinate:"+subordinate.getStaffName()+" subordinates size"+getSubordinates().size());
 	}
 	
  	public void updateLeave(Leave eleave, String leaveStatus){
@@ -123,7 +137,10 @@ public class Staff extends AbstractStaff{
 	public void AssignChildstoSupervisor() {
 		List<AbstractStaff> subordinates = this.getSubordinates();
 		for(AbstractStaff child : subordinates) {
+			System.out.println("1  AssignChildstoSupervisor: current staff:"+this.getStaffName()+" Child name:"+child.getStaffName()+" Child Supervisor:"+child.getSupervisor().getStaffName()+" supervisor subordinates size:"+this.getSupervisor().getSubordinates().size());
 			child.setSupervisor(this.getSupervisor());
+			this.getSupervisor().addSubordinate(child);
+			System.out.println("2  AssignChildstoSupervisor: current staff:"+this.getStaffName()+" Child name:"+child.getStaffName()+" Child Supervisor:"+child.getSupervisor().getStaffName()+" supervisor subordinates size:"+this.getSupervisor().getSubordinates().size());
 		}
 	}
 	

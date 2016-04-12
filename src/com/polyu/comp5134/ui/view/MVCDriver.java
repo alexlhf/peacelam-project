@@ -16,9 +16,11 @@ public class MVCDriver {
 		StaffUtil.createStaff(staff);
 		staff = new Staff("Mary","123456",staff,Staff.admin);
 		staff.setStaffId(SequenceGenerator.getInstance().getNextStaffId());
+		staff.getSupervisor().addSubordinate(staff);
 		StaffUtil.createStaff(staff);
 		staff = new Staff("Peter","123456",staff,Staff.staff);
 		staff.setStaffId(SequenceGenerator.getInstance().getNextStaffId());
+		staff.getSupervisor().addSubordinate(staff);
 		StaffUtil.createStaff(staff);
 		
 	}

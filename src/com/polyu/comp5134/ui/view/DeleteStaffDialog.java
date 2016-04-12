@@ -116,6 +116,7 @@ public class DeleteStaffDialog extends JDialog implements Observer,ActionListene
 					JOptionPane.showMessageDialog(null, "You cannot delete yourself", "Delete error", JOptionPane.ERROR_MESSAGE);
 				}else if(!staff.getStaffRole().equals(Staff.director)) {
 					staff.MoveLeavestoSupervisor();
+					staff.getSupervisor().removeSubordinate(staff);
 					staff.AssignChildstoSupervisor();
 					model.delStaff(staffId);
                     JOptionPane.showMessageDialog(null,

@@ -1,6 +1,6 @@
 COMP5134: Project (2016 Spring)
 
-Open the source code in Eclipse
+A. Open the source code in Eclipse and run the program:
 1. Use browser to access the hyper link of the project from git.txt
 
 2. Click Download ZIP to download compressed project file from GitHub
@@ -24,3 +24,22 @@ src/com/polyu/comp5134/ui/view	- all the source codes related to UI views
 9. Open a command prompt and change directory to the project's HOME directory.
 
 10. Execute "run.bat" or java -jar dist\project.jar in the project's HOME folder to run the program.
+
+B. Managing the system:
+1. In the MainView GUI, click Login and then enter username/password: director/123456. There are three users were created by default,
+namely director who is the Director, Mary who is system admin and Peter who is normal staff. Their passwords are 123456.
+
+2. Only system admin role and director role are allowed to create or delete staff.
+
+3. Any staff except director can use My Leaves view to apply for a leave from date X to date Y.
+
+4. Once a staff has applied for a leave, her supervisor can use Approve Leave view to see the staff's leave applications and has the options to
+"endorse" and "decline". 
+
+i) If her supervisor endorses the leave, the leave will pass to her supervisor for further endorsement. Until all 
+the direct/indirect supervisor of the staff has endorsed, the staff will see her result about her successful approval for her leave.
+
+ii) If anyone in the process declines the leave application, the staff will be notified and the leave application does not further pass up.
+
+5. The finalresult of the staff's leave applications will be displayed in My Leaves view.
+
