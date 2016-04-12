@@ -5,7 +5,8 @@ A. Open the source code in Eclipse and run the program:
 
 2. Click Download ZIP to download compressed project file from GitHub
 
-3. Save the zip file to a temporary folder
+3. Save the zip file to a temporary folder, then uncompress the zip file. Then, rename the parent folder
+   from peacelam-project-master to COMP5134_Project
 
 4. Select File->Import->General->Existing Projects to Workspace in Eclipse
 
